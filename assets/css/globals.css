@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@layer components {
+  .tw-nav-link {
+    @apply font-bold text-lg relative;
+  }
+}
+
+/* NAVBAR LINK HOVER */
+
+.tw-nav-link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #9A1717;
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+}
+
+.tw-nav-link:hover:after,
+.tw-nav-link:focus:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* HERO TEXT */
+
+.mask {
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+  height: 78px;
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--offset);
+}
+
+.mask span {
+  color: #9A1717;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 8s infinite linear;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 71px;
+  padding-bottom: var(--offset);
+}
+
+.mask span[data-show] {
+  transform: translateY(-100%);
+  transition: .5s transform ease-in-out;
+}
+
+.mask span[data-up] {
+  transform: translateY(-200%);
+  transition: .5s transform ease-in-out;
+}
+
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}
+
+@media (max-width: 1280px) {
+  .mask {
+    height: 53px;
+  }
+  .mask span {
+    top: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mask {
+    height: 26px;
+  }
+
+  .mask span {
+    top: 24px;
+  }
+}

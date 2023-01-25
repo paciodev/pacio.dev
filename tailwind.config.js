@@ -6,6 +6,11 @@ module.exports = {
       fontFamily: {
         pacio: ['-apple-system', 'Inter', 'sans-serif'],
       },
+      colors: {
+        red: {
+          dark: '#9A1717',
+        },
+      },
     },
   },
   plugins: [],

@@ -1,7 +1,13 @@
-export default function Home() {
+import About from '@/components/About';
+import Hero from '@/components/Hero';
+
+const Home = () => {
   return (
-    <h1 className='text-7xl grid place-content-center h-screen font-extrabold font-pacio text-blue-500'>
-      Hello world!
-    </h1>
+    <main>
+      <Hero />
+      <About />
+    </main>
   );
-}
+};
+
+export default Home;
