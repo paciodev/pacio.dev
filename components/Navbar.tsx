@@ -38,20 +38,20 @@ const Navbar = () => {
   }, [open, width, cycleOpen]);
 
   return (
-    <header className='fixed bg-white xl:bg-transparent top-0 left-0 w-screen p-5 md:p-12 flex items-center justify-between z-10'>
+    <header className='sticky lg:fixed bg-white lg:bg-transparent top-0 left-0 w-screen p-5 lg:p-12 flex items-center justify-between z-10'>
       <div>
         <Link href='/' className='cursor-pointer relative z-40'>
           <Image src={logo} alt='Pacio' className='w-[100px] sm:w-[150px]' />
         </Link>
       </div>
-      <div className='hidden md:block space-x-5'>
+      <div className='hidden lg:block space-x-5'>
         {links.map((link, i) => (
           <a key={i} href={link.href} className='tw-nav-link'>
             {link.text}
           </a>
         ))}
       </div>
-      <div className='md:hidden relative z-40'>
+      <div className='lg:hidden relative z-40'>
         <Hamburger
           toggled={open}
           onToggle={() => cycleOpen()}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,22 @@
     @apply font-bold text-lg relative;
   }
 }
+
+.bg-pizza {
+  background: #00000070 url('/assets/img/pizza.jpg');
+}
+
+.bg-vscode {
+  background: #00000070 url('/assets/img/vscode.png');
+  background-size: 150% !important;
+}
+
+.bg-img {
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+}
+
 
 /* NAVBAR LINK HOVER */
 
@@ -89,5 +107,18 @@
 
   .mask span {
     top: 24px;
+  }
+}
+
+#test {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: sign 3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
   }
 }
