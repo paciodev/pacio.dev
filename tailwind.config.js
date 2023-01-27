@@ -12,6 +12,9 @@ module.exports = {
           light: '#FFDFDF',
         },
       },
+      screens: {
+        mini: '468px',
+      },
     },
   },
   plugins: [],

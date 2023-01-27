@@ -29,7 +29,7 @@ const About = () => {
         <h2 className='text-center py-6 text-3xl text-red-dark'>
           Facts about me
         </h2>
-        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 p-5 sm:px-24 pb-16 !pt-0 text-white gap-3'>
+        <div className='grid grid-cols-2 mini:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 p-5 lg:px-24 pb-16 !pt-0 text-white gap-3'>
           <motion.div
             variants={card}
             whileHover='hover'
@@ -92,7 +92,7 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='min-h-[8rem] rounded-xl col-span-4 row-span-2 bg-red-dark relative'
+            className='min-h-[8rem] rounded-xl col-span-2 mini:col-span-4 row-start-4 mini:row-start-3 lg:row-start-auto row-span-1 xl:row-span-2 bg-red-dark relative'
           >
             <Image
               src={pacio}
@@ -105,7 +105,7 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='rounded-xl col-span-2 row-span-2 bg-red-dark'
+            className='h-[268px] mini:h-auto rounded-xl col-start-auto lg:col-start-5 xl:col-start-auto col-span-2 row-span-2 lg:row-span-auto lg:row-start-2 lg:row-end-4 xl:row-span-2 bg-red-dark'
           >
             TO DO DOKONCZENIA
           </motion.div>
@@ -113,7 +113,7 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='h-32 rounded-xl col-span-2 bg-red-dark flex flex-col items-center justify-center text-4xl bg-img bg-vscode'
+            className='h-32 rounded-xl col-span-2 bg-red-dark flex lg:hidden xl:flex flex-col items-center justify-center text-4xl bg-img bg-vscode'
           >
             <p>Using</p>
           </motion.div>
@@ -121,7 +121,7 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='h-32 rounded-xl col-span-4 bg-red-dark flex   items-center justify-center text-4xl'
+            className='text-center h-32 rounded-xl col-span-2 mini:col-span-4 bg-red-dark flex items-center justify-center text-3xl mini:text-4xl'
           >
             <p>{text}</p>
             <Cursor />
@@ -146,7 +146,7 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='h-32 rounded-xl col-span-2 bg-red-dark flex flex-col items-center justify-center text-center'
+            className='h-32 rounded-xl col-span-2 bg-red-dark flex lg:hidden xl:flex flex-col items-center justify-center text-center'
           >
             DO WPISANIA
           </motion.div>
