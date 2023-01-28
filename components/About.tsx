@@ -18,7 +18,7 @@ const card = {
 
 const About = () => {
   const [text] = useTypewriter({
-    words: ['Web Developer', 'Always inspired', 'Fresh mind', 'Clean POV'],
+    words: ['Web Developer', 'Always inspired', 'Young mind', 'Fresh POV'],
     loop: 0,
     delaySpeed: 2000,
   });
