@@ -8,6 +8,7 @@ import react from '@/assets/img/react.png';
 import tailwind from '@/assets/img/tailwind.svg';
 import pacio from '@/assets/img/pacio.jpeg';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import '@/assets/css/glitch.css';
 
 const card = {
   hover: {
@@ -105,10 +106,8 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='h-[268px] mini:h-auto rounded-xl col-start-auto lg:col-start-5 xl:col-start-auto col-span-2 row-span-2 lg:row-span-auto lg:row-start-2 lg:row-end-4 xl:row-span-2 bg-red-dark'
-          >
-            TO DO DOKONCZENIA
-          </motion.div>
+            className='h-[268px] mini:h-auto rounded-xl col-start-auto lg:col-start-5 xl:col-start-auto col-span-2 row-span-2 lg:row-span-auto lg:row-start-2 lg:row-end-4 xl:row-span-2 bg-red-dark bg-hobbies'
+          />
 
           <motion.div
             variants={card}
@@ -146,9 +145,9 @@ const About = () => {
           <motion.div
             variants={card}
             whileHover='hover'
-            className='h-32 rounded-xl col-span-2 bg-red-dark flex lg:hidden xl:flex flex-col items-center justify-center text-center'
+            className='h-32 rounded-xl col-span-2 bg-black flex lg:hidden xl:flex flex-col items-center justify-center text-center text-5xl cursor-wait select-none'
           >
-            DO WPISANIA
+            <p className='glitch'>???</p>
           </motion.div>
         </div>
       </div>

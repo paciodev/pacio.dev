@@ -3,8 +3,6 @@
 import config from '../../../sanity.config';
 import { NextStudioLoading } from 'next-sanity/studio/loading';
 
-const Loading = () => {
+export default function Loading() {
   return <NextStudioLoading config={config} />;
-};
-
-export default Loading;
+}

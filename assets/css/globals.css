@@ -29,6 +29,12 @@
   background-position: center;
 }
 
+.bg-hobbies {
+  background: url('/assets/img/hobbies.png');
+  background-position: center;
+  background-size: cover;
+}
+
 
 /* NAVBAR LINK HOVER */
 
