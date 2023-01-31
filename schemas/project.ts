@@ -53,6 +53,18 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'imageSize',
+      title: 'Image size in %',
+      description: 'Default value is: 70%',
+      type: 'number',
+    }),
+    defineField({
+      name: 'imagePosition',
+      title: 'Image position in box',
+      description: 'Ex. top, center, bottom',
+      type: 'string',
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',

@@ -41,15 +41,22 @@ interface Block {
   style: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote'
 }
 
+interface Slug {
+  _type: 'slug';
+  current: string;
+}
+
 interface Project extends Base {
   name: string;
-  slug: string;
+  slug: Slug;
   company: string;
   github: string;
   live: string;
   colorLight: Color;
   colorDark: Color;
   image: Image;
+  imageSize: number;
+  imagePosition: string;
   categories: Category[];
   technologies: Technology[];
   createdAt: Date;
