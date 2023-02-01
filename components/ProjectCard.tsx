@@ -2,6 +2,7 @@
 
 import urlFor from '@/lib/urlFor';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const ProjectCard = ({ project }: { project: Project }) => {
@@ -15,7 +16,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             transition: { type: 'spring', duration: 0.5 },
           }}
           viewport={{ once: true }}
-          className='py-6 xl:py-12 px-12 xl:px-20 flex flex-col justify-between h-[400px] xl:h-[600px] relative bg-no-repeat mini-bg-none'
+          className='mini:py-6 xl:py-12 mini:px-12 xl:px-20 flex flex-col mini:justify-between mini:h-[400px] xl:h-[600px] relative bg-no-repeat mini-bg-none'
           style={{
             backgroundColor: project.colorLight.hex,
             backgroundImage: `url('${urlFor(project.image).url()}')`,
@@ -24,14 +25,23 @@ const ProjectCard = ({ project }: { project: Project }) => {
             color: project.colorDark.hex,
           }}
         >
-          <h2 className='font-extrabold text-4xl xl:text-[58px]'>
+          {project.imagePosition === 'top' && (
+            <Image
+              src={urlFor(project.image).url()}
+              alt={`Image of ${project.name}`}
+              className='mini:hidden ml-auto'
+              width={300}
+              height={200}
+            />
+          )}
+          <h2 className='px-8 mini:px-0 font-extrabold text-4xl xl:text-[58px] pt-6 mini:pt-0'>
             {project.name}
           </h2>
           <div>
-            <p className='font-extrabold text-2xl xl:text-4xl'>
+            <p className='px-8 mini:px-0 font-extrabold text-2xl xl:text-4xl'>
               {project.company}
             </p>
-            <div className='flex space-x-3 mt-1'>
+            <div className='mini:flex px-8 mini:px-0 mini:space-x-3 space-y-1 mini:space-y-0 mt-1 mb-3'>
               {project.categories.map((c) => (
                 <div
                   style={{
@@ -39,12 +49,21 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     color: project.colorLight.hex,
                   }}
                   key={c._id}
-                  className='px-5 py-[2px] rounded-full'
+                  className='px-5 py-[2px] w-full mini:w-auto rounded-full mini:text-center overflow-hidden'
                 >
                   {c.title}
                 </div>
               ))}
             </div>
+            {project.imagePosition !== 'top' && (
+              <Image
+                src={urlFor(project.image).url()}
+                alt={`Image of ${project.name}`}
+                className='mini:hidden float-right'
+                width={300}
+                height={200}
+              />
+            )}
           </div>
         </motion.div>
       </Link>

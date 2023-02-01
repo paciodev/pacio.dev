@@ -10,11 +10,11 @@ import useWindowDimensions from '@/utils/useWindowDimensions';
 
 const links = [
   {
-    href: '#',
+    href: '#about',
     text: 'About',
   },
   {
-    href: '#',
+    href: '/projects',
     text: 'Portfolio',
   },
   {
@@ -32,7 +32,10 @@ const Navbar = () => {
   }, [open]);
 
   useEffect(() => {
-    if (open && width! > 768) {
+    if (
+      open &&
+      (width! > 768 || window.location.pathname.startsWith('/studio'))
+    ) {
       cycleOpen();
     }
   }, [open, width, cycleOpen]);
@@ -46,9 +49,9 @@ const Navbar = () => {
       </div>
       <div className='hidden lg:block space-x-5'>
         {links.map((link, i) => (
-          <a key={i} href={link.href} className='tw-nav-link'>
+          <Link key={i} href={link.href} className='tw-nav-link'>
             {link.text}
-          </a>
+          </Link>
         ))}
       </div>
       <div className='lg:hidden relative z-40'>
