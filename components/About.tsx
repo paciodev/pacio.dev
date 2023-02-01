@@ -25,7 +25,7 @@ const About = () => {
   });
 
   return (
-    <div className='max-w-5xl mx-auto font-extrabold px-0 sm:px-10 md:px-32 xl:px-0 mt-[30vh]'>
+    <div className='max-w-6xl mx-auto font-extrabold px-0 sm:px-10 md:px-32 xl:px-0 mt-[30vh]'>
       <div className='bg-red-light' id='about'>
         <h2 className='text-center py-6 text-3xl text-red-dark'>
           Facts about me

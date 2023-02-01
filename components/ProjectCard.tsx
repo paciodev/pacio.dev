@@ -10,17 +10,26 @@ const ProjectCard = ({ project }: { project: Project }) => {
     <div>
       <Link href={`/projects/${project.slug.current}`}>
         <motion.div
-          initial={{ scale: 0.7 }}
+          initial={{
+            scale: 0.7,
+            backgroundSize: `${project.imageSize || 70}%`,
+          }}
+          whileHover={{
+            backgroundSize: `${(project.imageSize || 70) - 3}%`,
+            transition: {
+              duration: 0.1,
+              ease: 'easeOut',
+            },
+          }}
           whileInView={{
             scale: 1,
             transition: { type: 'spring', duration: 0.5 },
           }}
           viewport={{ once: true }}
-          className='mini:py-6 xl:py-12 mini:px-12 xl:px-20 flex flex-col mini:justify-between mini:h-[400px] xl:h-[600px] relative bg-no-repeat mini-bg-none'
+          className='mini:py-6 xl:py-16 hover:xl:py-20 hover:xl:px-24 transition-all ease-out mini:px-12 xl:px-20 flex flex-col mini:justify-between mini:h-[400px] xl:h-[600px] relative bg-no-repeat mini-bg-none'
           style={{
             backgroundColor: project.colorLight.hex,
             backgroundImage: `url('${urlFor(project.image).url()}')`,
-            backgroundSize: `${project.imageSize || 70}%`,
             backgroundPosition: `right ${project.imagePosition || 'center'}`,
             color: project.colorDark.hex,
           }}
@@ -49,7 +58,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     color: project.colorLight.hex,
                   }}
                   key={c._id}
-                  className='px-5 py-[2px] w-full mini:w-auto rounded-full mini:text-center overflow-hidden'
+                  className='px-5 py-[2px] w-full mini:w-auto rounded-full text-center overflow-hidden'
                 >
                   {c.title}
                 </div>

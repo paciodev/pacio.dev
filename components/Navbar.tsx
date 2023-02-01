@@ -41,7 +41,7 @@ const Navbar = () => {
   }, [open, width, cycleOpen]);
 
   return (
-    <header className='sticky lg:fixed bg-white lg:bg-transparent top-0 left-0 w-screen p-5 lg:p-12 flex items-center justify-between z-10'>
+    <header className='fixed bg-white lg:bg-transparent top-0 left-0 w-screen p-5 lg:p-12 flex items-center justify-between z-10'>
       <div>
         <Link href='/' className='cursor-pointer relative z-40'>
           <Image src={logo} alt='Pacio' className='w-[100px] sm:w-[150px]' />
