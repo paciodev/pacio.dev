@@ -8,6 +8,10 @@
   overflow: hidden;
 } */
 
+* {
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), border 0s;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -15,6 +19,18 @@
 @layer components {
   .tw-nav-link {
     @apply font-bold text-lg relative;
+  }
+
+  .tw-ft-link {
+    @apply text-4xl font-extrabold transition-all hover:text-red-dark duration-300;
+  }
+
+  .tw-form-label {
+    @apply font-extrabold mt-3 block;
+  }
+
+  .tw-form-input {
+    @apply bg-[#D9D9D9] w-full mini:w-[350px] px-4 py-3 text-sm placeholder:text-[#4F4F4F] outline-none;
   }
 }
 
@@ -42,9 +58,8 @@
 @media screen and (max-width: 468px) {
   .mini-bg-none {
     background-image: none !important;
-  } 
+  }
 }
-
 
 /* NAVBAR LINK HOVER */
 
@@ -56,7 +71,7 @@
   height: 2px;
   bottom: -3px;
   left: 0;
-  background-color: #9A1717;
+  background-color: #9a1717;
   transform-origin: bottom right;
   transition: transform 0.35s ease-out;
 }
@@ -67,55 +82,47 @@
   transform-origin: bottom left;
 }
 
-/* HERO TEXT */
+/* BTN CONTACT */
 
-.mask {
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #1d1d1f;
-  height: 78px;
-  position: relative;
-  overflow: hidden;
-  margin-top: var(--offset);
+.animate-error {
+  animation: shake 1s, bgChange 2s;
 }
 
-.mask span {
-  color: #9A1717;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: move-bg 8s infinite linear;
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  top: 71px;
-  padding-bottom: var(--offset);
-}
-
-.mask span[data-show] {
-  transform: translateY(-100%);
-  transition: .5s transform ease-in-out;
-}
-
-.mask span[data-up] {
-  transform: translateY(-200%);
-  transition: .5s transform ease-in-out;
-}
-
-@media (max-width: 1280px) {
-  .mask {
-    height: 53px;
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
   }
-  .mask span {
-    top: 48px;
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
 
-@media (max-width: 640px) {
-  .mask {
-    height: 26px;
+@keyframes bgChange {
+  0% {
+    background: black;
+  }
+  20% {
+    background: #9a1717;
   }
 
-  .mask span {
-    top: 24px;
+  80% {
+    background: #9a1717;
+  }
+  100% {
+    background: black;
   }
 }

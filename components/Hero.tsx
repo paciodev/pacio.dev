@@ -1,3 +1,5 @@
+import '@/assets/css/hero.css';
+
 const Hero = () => {
   return (
     <div className='mt-32 lg:mt-[30vh]'>
@@ -7,11 +9,11 @@ const Hero = () => {
             <div>Web Developer</div>
             <div className='xl:ml-32'>specialized in creating</div>
             <div className='xl:ml-64 mask'>
-              <span className='hero-animation accent' data-show>
+              <span className='hero-animation' data-show>
                 powerful webapps
               </span>
-              <span className='hero-animation accent'>beautiful pages</span>
-              <span className='hero-animation accent'>simple designs</span>
+              <span className='hero-animation'>beautiful pages</span>
+              <span className='hero-animation'>simple designs</span>
             </div>
           </div>
         </h1>

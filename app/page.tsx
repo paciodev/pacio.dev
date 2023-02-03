@@ -3,6 +3,8 @@ import { groq } from 'next-sanity';
 import About from '@/components/About';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
 const query = groq`
   *[_type == 'project'] {
@@ -22,6 +24,8 @@ const Home = async () => {
       <Hero />
       <About />
       <Projects projects={data} />
+      <Contact />
+      <Footer />
     </main>
   );
 };

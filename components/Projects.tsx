@@ -13,8 +13,9 @@ const Projects = ({ projects }: { projects: Project[] }) => {
         <Image
           src={selectedProjects}
           alt='My selected projects'
-          className='scale-50 sm:scale-100'
+          className='scale-50 sm:scale-100 select-none'
           width={400}
+          draggable={false}
         />
       </div>
       <div className='space-y-24'>

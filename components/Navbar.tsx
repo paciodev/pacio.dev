@@ -34,7 +34,7 @@ const Navbar = () => {
   useEffect(() => {
     if (
       open &&
-      (width! > 768 || window.location.pathname.startsWith('/studio'))
+      (width! > 1023 || window.location.pathname.startsWith('/studio'))
     ) {
       cycleOpen();
     }
@@ -64,7 +64,7 @@ const Navbar = () => {
 
       {/* SIDEBAR */}
       <AnimatePresence>
-        {open && width! < 768 && (
+        {open && width! < 1023 && (
           <motion.aside
             key='sidebar'
             initial={{ opacity: 0 }}

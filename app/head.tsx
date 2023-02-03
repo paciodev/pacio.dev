@@ -1,3 +1,5 @@
+import Script from 'next/script';
+
 const Head = () => {
   return (
     <>
@@ -35,7 +37,7 @@ const Head = () => {
       />
 
       <link rel='icon' href='/assets/img/logo-circle.png' />
-      <script src='/assets/js/hero.js' defer async />
+      <Script src='/assets/js/hero.js' defer async />
     </>
   );
 };

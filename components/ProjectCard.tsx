@@ -8,7 +8,7 @@ import Link from 'next/link';
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div>
-      <Link href={`/projects/${project.slug.current}`}>
+      <Link href={`/projects/${project.slug.current}`} className='outline-none'>
         <motion.div
           initial={{
             scale: 0.7,
