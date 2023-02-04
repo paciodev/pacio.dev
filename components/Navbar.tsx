@@ -7,10 +7,19 @@ import { Squash as Hamburger } from 'hamburger-react';
 import { useEffect } from 'react';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
 import useWindowDimensions from '@/utils/useWindowDimensions';
+import { Link as ScrollLink } from 'react-scroll';
 
-const links = [
+type Link = {
+  to?: string;
+  href?: string;
+  offset?: number;
+  text: string;
+};
+
+const links: Link[] = [
   {
-    href: '#about',
+    to: 'about',
+    offset: -200,
     text: 'About',
   },
   {
@@ -18,7 +27,8 @@ const links = [
     text: 'Portfolio',
   },
   {
-    href: '#',
+    to: 'contact',
+    offset: -100,
     text: 'Contact',
   },
 ];
@@ -32,10 +42,7 @@ const Navbar = () => {
   }, [open]);
 
   useEffect(() => {
-    if (
-      open &&
-      (width! > 1023 || window.location.pathname.startsWith('/studio'))
-    ) {
+    if (open && width! > 1023) {
       cycleOpen();
     }
   }, [open, width, cycleOpen]);
@@ -47,11 +54,24 @@ const Navbar = () => {
           <Image src={logo} alt='Pacio' className='w-[100px] sm:w-[150px]' />
         </Link>
       </div>
-      <div className='hidden lg:block space-x-5'>
-        {links.map((link, i) => (
-          <Link key={i} href={link.href} className='tw-nav-link'>
-            {link.text}
-          </Link>
+      <div className='hidden lg:flex items-center justify-center space-x-5 '>
+        {links.map((link) => (
+          <div key={link.text} className=''>
+            {link.href ? (
+              <Link href={link.href || '/'} className='tw-nav-link'>
+                {link.text}
+              </Link>
+            ) : (
+              <ScrollLink
+                to={link.to!}
+                className='tw-nav-link'
+                offset={link.offset || 0}
+                smooth
+              >
+                {link.text}
+              </ScrollLink>
+            )}
+          </div>
         ))}
       </div>
       <div className='lg:hidden relative z-40'>
@@ -80,8 +100,8 @@ const Navbar = () => {
             className='z-30 fixed h-screen w-screen top-0 left-0 bg-white grid place-content-center space-y-6 text-center font-extrabold text-5xl sm:text-6xl'
           >
             {links.map((link, i) => (
-              <motion.a
-                key={i}
+              <motion.div
+                key={link.text}
                 initial={{ scale: 0 }}
                 animate={{
                   scale: 1,
@@ -96,11 +116,23 @@ const Navbar = () => {
                     delay: 0.7 - i * 0.1,
                   },
                 }}
-                href={link.href}
                 className='tw-sb-link'
               >
-                {link.text}
-              </motion.a>
+                {link.href ? (
+                  <Link href={link.href} onClick={() => cycleOpen()}>
+                    {link.text}
+                  </Link>
+                ) : (
+                  <ScrollLink
+                    onClick={() => cycleOpen()}
+                    to={link.to!}
+                    offset={link.offset || 0}
+                    smooth
+                  >
+                    {link.text}
+                  </ScrollLink>
+                )}
+              </motion.div>
             ))}
           </motion.aside>
         )}

@@ -18,10 +18,10 @@
 
 @layer components {
   .tw-nav-link {
-    @apply font-bold text-lg relative;
+    @apply font-bold text-lg relative cursor-pointer;
   }
 
-  .tw-ft-link {
+  .tw-contact-link {
     @apply text-4xl font-extrabold transition-all hover:text-red-dark duration-300;
   }
 

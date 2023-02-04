@@ -25,7 +25,6 @@ const Home = async () => {
       <About />
       <Projects projects={data} />
       <Contact />
-      <Footer />
     </main>
   );
 };

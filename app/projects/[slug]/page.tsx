@@ -1,3 +1,4 @@
+import NotBuilt from '@/components/NotBuilt';
 import client from '@/lib/sanity.client';
 import { groq } from 'next-sanity';
 
@@ -38,7 +39,11 @@ const ProjectPage = async ({ params: { slug } }: Props) => {
 
   const project: Project = await client.fetch(query, { slug });
 
-  return <div>page for {project.name}</div>;
+  return (
+    <div className='mt-64 mb-32 lg:my-[30vh]'>
+      <NotBuilt project={project} />
+    </div>
+  );
 };
 
 export default ProjectPage;

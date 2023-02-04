@@ -22,8 +22,15 @@ const handler = (
   const mailOptions = {
     from: `${req.body.name} <${req.body.email}>`,
     to: 'contact@pacio.dev',
-    subject: `[pacio.dev] - ${req.body.name}`,
-    text: req.body.message
+    subject: `[pacio.dev] - ${req.body.name} - ${req.body.email}`,
+    text: req.body.text,
+    html: `
+    <main style="font-family:sans-serif">
+      <h3>Mail from: ${req.body.email}</h3>
+      <hr />
+      <p><b>Message:</b> ${req.body.message}</p>
+    </main>
+    `
   };
 
   if (req.method === 'POST') {

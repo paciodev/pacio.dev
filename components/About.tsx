@@ -9,6 +9,7 @@ import tailwind from '@/assets/img/tailwind.svg';
 import pacio from '@/assets/img/pacio.jpeg';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import '@/assets/css/glitch.css';
+import { Element } from 'react-scroll';
 
 const card = {
   hover: {
@@ -25,8 +26,11 @@ const About = () => {
   });
 
   return (
-    <div className='max-w-6xl mx-auto font-extrabold px-0 sm:px-10 md:px-32 xl:px-0 mt-[30vh]'>
-      <div className='bg-red-light' id='about'>
+    <div
+      className='max-w-6xl mx-auto font-extrabold px-0 sm:px-10 md:px-32 xl:px-0 mt-[30vh]'
+      id='about'
+    >
+      <Element className='bg-red-light' name='about'>
         <h2 className='text-center py-6 text-3xl text-red-dark'>
           Facts about me
         </h2>
@@ -150,7 +154,7 @@ const About = () => {
             <p className='glitch'>???</p>
           </motion.div>
         </div>
-      </div>
+      </Element>
     </div>
   );
 };
