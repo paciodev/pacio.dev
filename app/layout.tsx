@@ -9,6 +9,7 @@ import Loader from '@/app/Loader';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Toaster } from 'react-hot-toast';
+import { AnalyticsWrapper } from '@/components/vercel/Analytics';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -36,6 +37,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Scrollbar />
         {children}
         <Footer />
+        <AnalyticsWrapper />
       </body>
     </html>
   );

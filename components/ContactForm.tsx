@@ -61,7 +61,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <div className='relative z-10'>
       <AnimatePresence mode='wait'>
         {submitted ? (
           <motion.div
