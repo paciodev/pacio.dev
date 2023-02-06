@@ -25,6 +25,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'role',
+      title: 'Role in project',
+      type: 'string',
+    }),
+    defineField({
       name: 'github',
       title: 'Link to github repo',
       type: 'url',
@@ -45,24 +50,32 @@ export default defineType({
       type: 'color',
     }),
     defineField({
-      name: 'image',
-      title: 'Main image',
+      name: 'previewImage',
+      title: 'Image on (/)',
       type: 'image',
       options: {
         hotspot: true,
       },
     }),
     defineField({
-      name: 'imageSize',
-      title: 'Image size in %',
+      name: 'previewImageSize',
+      title: 'Image on (/) size in %',
       description: 'Default value is: 70%',
       type: 'number',
     }),
     defineField({
-      name: 'imagePosition',
+      name: 'previewImagePosition',
       title: 'Image position in box',
       description: 'Ex. top, center, bottom',
       type: 'string',
+    }),
+    defineField({
+      name: 'image',
+      title: 'Main image on (/projects/[slug])',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: 'categories',

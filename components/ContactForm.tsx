@@ -29,7 +29,7 @@ const ContactForm = () => {
       return setError('Please complete all fields');
     }
 
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email.toLowerCase())) {
       return setError('Please provide a valid email address');
     }
 
@@ -44,7 +44,7 @@ const ContactForm = () => {
       },
       body: JSON.stringify({
         name,
-        email,
+        email: email.toLowerCase(),
         message,
       }),
     })
@@ -90,7 +90,7 @@ const ContactForm = () => {
             exit={{ opacity: 0, transition: { type: 'spring' } }}
             className='lg:mr-20 w-full mini:w-auto pl-5 pr-7 mini:px-0'
           >
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
               <label className='tw-form-label' htmlFor='name'>
                 What&apos;s your name?
               </label>
@@ -105,6 +105,8 @@ const ContactForm = () => {
               </label>
               <input
                 placeholder='bob@email.com'
+                type='email'
+                pattern='.*'
                 className='tw-form-input'
                 id='email'
                 {...register('email')}

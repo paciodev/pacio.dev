@@ -1,7 +1,7 @@
 const Head = () => {
   return (
     <>
-      <title>Pacio - All projects</title>
+      <title>Pacio - Project</title>
       <meta name='title' content='Pacio - Creative web developer' />
       <meta
         name='description'

@@ -151,7 +151,9 @@ const About = () => {
             whileHover='hover'
             className='h-32 rounded-xl col-span-2 bg-black flex lg:hidden xl:flex flex-col items-center justify-center text-center text-5xl cursor-wait select-none'
           >
-            <p className='glitch'>???</p>
+            <p className='glitch' data-text='???'>
+              ???
+            </p>
           </motion.div>
         </div>
       </Element>

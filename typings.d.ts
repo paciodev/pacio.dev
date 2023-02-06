@@ -23,6 +23,7 @@ interface Category extends Base {
 
 interface Technology extends Base {
   title: string;
+  url: string;
   image: Image;
 }
 
@@ -50,13 +51,15 @@ interface Project extends Base {
   name: string;
   slug: Slug;
   company: string;
+  role: string;
   github: string;
   live: string;
   colorLight: Color;
   colorDark: Color;
+  previewImage: Image;
+  previewImageSize: number;
+  previewImagePosition: string;
   image: Image;
-  imageSize: number;
-  imagePosition: string;
   categories: Category[];
   technologies: Technology[];
   createdAt: Date;

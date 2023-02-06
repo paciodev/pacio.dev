@@ -14,6 +14,7 @@ module.exports = {
       },
       screens: {
         mini: '468px',
+        grid: '572px',
       },
     },
   },

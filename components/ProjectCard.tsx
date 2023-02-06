@@ -12,10 +12,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <motion.div
           initial={{
             scale: 0.7,
-            backgroundSize: `${project.imageSize || 70}%`,
+            backgroundSize: `${project.previewImageSize || 70}%`,
           }}
           whileHover={{
-            backgroundSize: `${(project.imageSize || 70) - 3}%`,
+            backgroundSize: `${(project.previewImageSize || 70) - 3}%`,
             transition: {
               duration: 0.1,
               ease: 'easeOut',
@@ -29,12 +29,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
           className='mini:py-6 xl:py-16 hover:xl:py-20 hover:xl:px-24 transition-all ease-out mini:px-12 xl:px-20 flex flex-col mini:justify-between mini:h-[400px] xl:h-[600px] relative bg-no-repeat mini-bg-none'
           style={{
             backgroundColor: project.colorLight.hex,
-            backgroundImage: `url('${urlFor(project.image).url()}')`,
-            backgroundPosition: `right ${project.imagePosition || 'center'}`,
+            backgroundImage: `url('${urlFor(project.previewImage).url()}')`,
+            backgroundPosition: `right ${
+              project.previewImagePosition || 'center'
+            }`,
             color: project.colorDark.hex,
           }}
         >
-          {project.imagePosition === 'top' && (
+          {project.previewImagePosition === 'top' && (
             <Image
               src={urlFor(project.image).url()}
               alt={`Image of ${project.name}`}
@@ -64,9 +66,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 </div>
               ))}
             </div>
-            {project.imagePosition !== 'top' && (
+            {project.previewImagePosition !== 'top' && (
               <Image
-                src={urlFor(project.image).url()}
+                src={urlFor(project.previewImage).url()}
                 alt={`Image of ${project.name}`}
                 className='mini:hidden float-right'
                 width={300}

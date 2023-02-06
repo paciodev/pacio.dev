@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
 import useWindowDimensions from '@/utils/useWindowDimensions';
 import { Link as ScrollLink } from 'react-scroll';
+import { usePathname } from 'next/navigation';
 
 type Link = {
   to?: string;
@@ -36,6 +37,7 @@ const links: Link[] = [
 const Navbar = () => {
   const [open, cycleOpen] = useCycle(false, true);
   const { width } = useWindowDimensions();
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflowY = open ? 'hidden' : 'auto';
@@ -47,8 +49,9 @@ const Navbar = () => {
     }
   }, [open, width, cycleOpen]);
 
+  if (pathname?.startsWith('/studio')) return null;
   return (
-    <header className='fixed bg-white lg:bg-transparent top-0 left-0 w-screen p-5 lg:p-12 flex items-center justify-between z-20'>
+    <header className='fixed bg-white lg:bg-transparent flex top-0 left-0 w-screen p-5 lg:p-12 items-center justify-between z-20'>
       <div>
         <Link href='/' className='cursor-pointer relative z-40'>
           <Image src={logo} alt='Pacio' className='w-[100px] sm:w-[150px]' />
@@ -57,7 +60,7 @@ const Navbar = () => {
       <div className='hidden lg:flex items-center justify-center space-x-5 '>
         {links.map((link) => (
           <div key={link.text} className=''>
-            {link.href ? (
+            {link.href || !(pathname === '/') ? (
               <Link href={link.href || '/'} className='tw-nav-link'>
                 {link.text}
               </Link>
@@ -118,8 +121,8 @@ const Navbar = () => {
                 }}
                 className='tw-sb-link'
               >
-                {link.href ? (
-                  <Link href={link.href} onClick={() => cycleOpen()}>
+                {link.href || !(pathname === '/') ? (
+                  <Link href={link.href || '/'} onClick={() => cycleOpen()}>
                     {link.text}
                   </Link>
                 ) : (

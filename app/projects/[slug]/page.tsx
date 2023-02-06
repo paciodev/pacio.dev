@@ -1,6 +1,8 @@
-import NotBuilt from '@/components/NotBuilt';
+import Hero from '@/components/projects/Hero';
+import Info from '@/components/projects/Info';
 import client from '@/lib/sanity.client';
 import { groq } from 'next-sanity';
+import '@/assets/css/glitch.css';
 
 type Props = {
   params: {
@@ -40,8 +42,32 @@ const ProjectPage = async ({ params: { slug } }: Props) => {
   const project: Project = await client.fetch(query, { slug });
 
   return (
-    <div className='mt-64 mb-32 lg:my-[30vh]'>
-      <NotBuilt project={project} />
+    <div className=''>
+      <Hero
+        dark={project.colorDark}
+        light={project.colorLight}
+        image={project.image}
+        project={project.name}
+        company={project.company}
+      />
+      <Info
+        darkColor={project.colorDark}
+        createdAt={project.createdAt}
+        role={project.role}
+        categories={project.categories}
+        technologies={project.technologies}
+        github={project.github}
+        demo={project.live}
+      />
+
+      <div className='grid place-content-center mb-16'>
+        <h3
+          className='glitch !text-black font-extrabold text-5xl'
+          data-text='More later...'
+        >
+          More later...
+        </h3>
+      </div>
     </div>
   );
 };

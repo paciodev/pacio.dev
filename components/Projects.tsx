@@ -1,12 +1,24 @@
-'use client';
-
 import ProjectCard from './ProjectCard';
 import selectedProjects from '@/assets/img/selected-projects.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import arrow from '@/assets/img/arrow-sm.png';
+import { groq } from 'next-sanity';
+import client from '@/lib/sanity.client';
 
-const Projects = ({ projects }: { projects: Project[] }) => {
+const query = groq`
+  *[_type == 'project'] {
+  ...,
+  categories[]->,
+  technologies[]->
+} | order(createdAt desc)[0..2]
+`;
+
+export const revalidate = 60;
+
+const Projects = async () => {
+  const data = await client.fetch(query);
+
   return (
     <div className='max-w-6xl mx-auto px-0 sm:px-10 md:px-32 xl:px-0'>
       <div className='flex items-center justify-center my-14 sm:my-24'>
@@ -19,7 +31,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
         />
       </div>
       <div className='space-y-24'>
-        {projects.map((p) => (
+        {data.map((p: Project) => (
           <ProjectCard key={p._id} project={p} />
         ))}
       </div>

@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'url',
+      title: 'Link to page of technology',
+      type: 'url',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
