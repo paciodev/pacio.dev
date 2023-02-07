@@ -9,7 +9,7 @@
 }
 
 .mask span {
-  color: #9A1717;
+  color: #9a1717;
   -webkit-background-clip: text;
   background-clip: text;
   animation: move-bg 8s infinite linear;
@@ -22,12 +22,12 @@
 
 .mask span[data-show] {
   transform: translateY(-100%);
-  transition: .5s transform ease-in-out;
+  transition: 0.5s transform ease-in-out;
 }
 
 .mask span[data-up] {
   transform: translateY(-200%);
-  transition: .5s transform ease-in-out;
+  transition: 0.5s transform ease-in-out;
 }
 
 @media (max-width: 1280px) {
@@ -41,10 +41,10 @@
 
 @media (max-width: 640px) {
   .mask {
-    height: 26px;
+    height: 32px;
   }
 
   .mask span {
-    top: 24px;
+    top: 30px;
   }
 }

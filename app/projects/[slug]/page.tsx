@@ -3,6 +3,9 @@ import Info from '@/components/projects/Info';
 import client from '@/lib/sanity.client';
 import { groq } from 'next-sanity';
 import '@/assets/css/glitch.css';
+import { PortableText } from '@portabletext/react';
+import { RichTextComponents } from '@/components/projects/RichTextComponents';
+import { notFound } from 'next/navigation';
 
 type Props = {
   params: {
@@ -29,8 +32,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const ProjectPage = async ({ params: { slug } }: Props) => {
-  const query = groq`
+const query = groq`
     *[_type=='project' && slug.current == $slug] [0]
     {
       ...,
@@ -39,10 +41,15 @@ const ProjectPage = async ({ params: { slug } }: Props) => {
     }
   `;
 
+const ProjectPage = async ({ params: { slug } }: Props) => {
   const project: Project = await client.fetch(query, { slug });
 
+  if (!project) {
+    return notFound();
+  }
+
   return (
-    <div className=''>
+    <>
       <Hero
         dark={project.colorDark}
         light={project.colorLight}
@@ -59,16 +66,10 @@ const ProjectPage = async ({ params: { slug } }: Props) => {
         github={project.github}
         demo={project.live}
       />
-
-      <div className='grid place-content-center mb-16'>
-        <h3
-          className='glitch !text-black font-extrabold text-5xl'
-          data-text='More later...'
-        >
-          More later...
-        </h3>
+      <div className='max-w-4xl mx-auto px-5 sm:px-10 md:px-32 xl:px-0 my-32'>
+        <PortableText value={project.body} components={RichTextComponents} />
       </div>
-    </div>
+    </>
   );
 };
 

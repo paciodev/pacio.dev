@@ -1,5 +1,3 @@
-import client from '@/lib/sanity.client';
-import { groq } from 'next-sanity';
 import About from '@/components/About';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';

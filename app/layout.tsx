@@ -4,8 +4,8 @@ import Navbar from '@/components/Navbar';
 import '@/assets/css/globals.css';
 import Scrollbar from '@/components/Scrollbar';
 import { AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import Loader from '@/app/Loader';
+import { Fragment, useEffect, useState } from 'react';
+import Loader from '@/components/Loader';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Toaster } from 'react-hot-toast';
@@ -33,10 +33,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <AnimatePresence>
           {isLoading ? <Loader key='loader' /> : null}
         </AnimatePresence>
-        <Navbar />
-        <Scrollbar />
-        {children}
-        <Footer />
+        {!isLoading ? (
+          <>
+            <Navbar />
+            <Scrollbar />
+            {children}
+            <Footer />
+          </>
+        ) : null}
         <AnalyticsWrapper />
       </body>
     </html>

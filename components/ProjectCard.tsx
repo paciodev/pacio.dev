@@ -36,15 +36,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
             color: project.colorDark.hex,
           }}
         >
-          {project.previewImagePosition === 'top' && (
-            <Image
-              src={urlFor(project.image).url()}
-              alt={`Image of ${project.name}`}
-              className='mini:hidden ml-auto'
-              width={300}
-              height={200}
-            />
-          )}
           <h2 className='px-8 mini:px-0 font-extrabold text-4xl xl:text-[58px] pt-6 mini:pt-0'>
             {project.name}
           </h2>
@@ -66,15 +57,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 </div>
               ))}
             </div>
-            {project.previewImagePosition !== 'top' && (
-              <Image
-                src={urlFor(project.previewImage).url()}
-                alt={`Image of ${project.name}`}
-                className='mini:hidden float-right'
-                width={300}
-                height={200}
-              />
-            )}
+            <Image
+              src={urlFor(project.image).url()}
+              alt={`Image of ${project.name}`}
+              className='mini:hidden mb-3 mx-auto'
+              width={300}
+              height={200}
+            />
           </div>
         </motion.div>
       </Link>
