@@ -23,6 +23,7 @@ const ProjectHero = ({ dark, light, image, project, company }: Props) => {
       </h3>
       <div className='relative h-[350px] sm:h-[700px] w-full'>
         <Image
+          priority
           src={urlFor(image).url()}
           alt={`Main image for ${project}`}
           fill
