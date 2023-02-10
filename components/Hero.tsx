@@ -1,6 +1,42 @@
-import '@/assets/css/hero.css';
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
+const letters = 'abcdefghijklmnopqrstuwxyz';
+const phrases = ['powerful webapps', 'beautiful pages', 'simple designs'];
 
 const Hero = () => {
+  const heroTextRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState<number>(0);
+
+  useEffect(() => {
+    setInterval(() => {
+      setIndex((p) => {
+        return p < phrases.length - 1 ? (p += 1) : 0;
+      });
+    }, 4000);
+  }, []);
+
+  useEffect(() => {
+    let iterations = 0;
+
+    const interval = setInterval(() => {
+      heroTextRef!.current!.innerText = phrases[index]
+        .split('')
+        .map((l) => {
+          if (l === ' ') return l;
+          return letters[Math.floor(Math.random() * letters.length)];
+        })
+        .join('');
+
+      if (iterations >= phrases.length) {
+        clearInterval(interval);
+        heroTextRef.current!.innerText = phrases[index];
+      }
+      iterations += 1 / 5;
+    }, 40);
+  }, [index]);
+
   return (
     <div className='mt-48 lg:mt-[30vh]'>
       <div>
@@ -8,12 +44,8 @@ const Hero = () => {
           <div className='select-none sm:space-y-1'>
             <div>Web Developer</div>
             <div className='xl:ml-32'>specialized in creating</div>
-            <div className='xl:ml-64 mask'>
-              <span className='hero-animation' data-show>
-                powerful webapps
-              </span>
-              <span className='hero-animation'>beautiful pages</span>
-              <span className='hero-animation'>simple designs</span>
+            <div className='xl:ml-64 mask text-red-dark' ref={heroTextRef}>
+              {phrases[index]}
             </div>
           </div>
         </h1>
