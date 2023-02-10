@@ -30,17 +30,18 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className='font-pacio'>
         <Toaster />
         <ScrollToTop />
-        <AnimatePresence>
-          {isLoading ? <Loader key='loader' /> : null}
+        <AnimatePresence mode='wait'>
+          {isLoading ? (
+            <Loader key='loader' />
+          ) : (
+            <div key='page'>
+              <Navbar />
+              <Scrollbar />
+              {children}
+              <Footer />
+            </div>
+          )}
         </AnimatePresence>
-        {!isLoading ? (
-          <>
-            <Navbar />
-            <Scrollbar />
-            {children}
-            <Footer />
-          </>
-        ) : null}
         <AnalyticsWrapper />
       </body>
     </html>

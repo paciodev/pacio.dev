@@ -52,14 +52,32 @@ const Navbar = () => {
   if (pathname?.startsWith('/studio')) return null;
   return (
     <header className='fixed bg-white lg:bg-transparent flex top-0 left-0 w-screen p-5 lg:p-12 items-center justify-between z-20'>
-      <div>
+      <motion.div
+        initial={{ y: -200 }}
+        animate={{
+          y: 0,
+          transition: { type: 'spring', duration: 0.8 },
+        }}
+      >
         <Link href='/' className='cursor-pointer relative z-40'>
           <Image src={logo} alt='Pacio' className='w-[100px] sm:w-[150px]' />
         </Link>
-      </div>
+      </motion.div>
       <div className='hidden lg:flex items-center justify-center space-x-5 '>
-        {links.map((link) => (
-          <div key={link.text} className=''>
+        {links.map((link, i) => (
+          <motion.div
+            initial={{ y: -200 }}
+            animate={{
+              y: 0,
+              transition: {
+                type: 'spring',
+                duration: 0.8,
+                delay: 0.2 + i * 0.3,
+              },
+            }}
+            key={link.text}
+            className=''
+          >
             {link.href || !(pathname === '/') ? (
               <Link href={link.href || '/'} className='tw-nav-link'>
                 {link.text}
@@ -74,7 +92,7 @@ const Navbar = () => {
                 {link.text}
               </ScrollLink>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className='lg:hidden relative z-40'>

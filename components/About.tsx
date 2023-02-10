@@ -26,7 +26,12 @@ const About = () => {
   });
 
   return (
-    <div
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{
+        scale: 1,
+        transition: { delay: 1, duration: 0.5, type: 'spring' },
+      }}
       className='max-w-6xl mx-auto font-extrabold px-0 sm:px-10 md:px-32 xl:px-0 mt-[30vh]'
       id='about'
     >
@@ -157,7 +162,7 @@ const About = () => {
           </motion.div>
         </div>
       </Element>
-    </div>
+    </motion.div>
   );
 };
 
