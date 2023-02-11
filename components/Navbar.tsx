@@ -51,7 +51,7 @@ const Navbar = () => {
 
   if (pathname?.startsWith('/studio')) return null;
   return (
-    <header className='fixed pointer-events-none bg-white lg:bg-transparent flex top-0 left-0 w-screen p-5 lg:p-12 items-center justify-between z-20'>
+    <header className='fixed bg-white lg:bg-transparent flex top-0 left-0 w-screen p-5 lg:p-12 items-center justify-between z-20'>
       <motion.div
         initial={{ y: -200 }}
         animate={{
@@ -59,10 +59,7 @@ const Navbar = () => {
           transition: { type: 'spring', duration: 0.8 },
         }}
       >
-        <Link
-          href='/'
-          className='cursor-pointer relative z-40 pointer-events-auto'
-        >
+        <Link href='/' className='cursor-pointer relative z-40'>
           <Image src={logo} alt='Pacio' className='w-[100px] sm:w-[150px]' />
         </Link>
       </motion.div>
@@ -79,7 +76,7 @@ const Navbar = () => {
               },
             }}
             key={link.text}
-            className='pointer-events-auto'
+            className=''
           >
             {link.href || !(pathname === '/') ? (
               <Link href={link.href || '/'} className='tw-nav-link'>
