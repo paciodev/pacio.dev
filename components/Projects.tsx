@@ -3,21 +3,21 @@ import selectedProjects from '@/assets/img/selected-projects.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import arrow from '@/assets/img/arrow-sm.png';
+import { groq } from 'next-sanity';
+import client from '@/lib/sanity.client';
 
-async function getProjects() {
-  let baseurl =
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3000'
-      : 'https://pacio.dev';
-  const res = await fetch(`${baseurl}/api/projects`, {
-    next: { revalidate: 60 },
-  });
+const query = groq`
+  *[_type == 'project'] {
+  ...,
+  categories[]->,
+  technologies[]->
+} | order(createdAt desc)[0..2]
+`;
 
-  return res.json();
-}
+export const revalidate = 60;
 
 const Projects = async () => {
-  const data = await getProjects();
+  const data = await client.fetch(query);
 
   return (
     <div className='max-w-6xl mx-auto px-0 sm:px-10 md:px-32 xl:px-0'>
