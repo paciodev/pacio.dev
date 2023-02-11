@@ -13,8 +13,6 @@ type Props = {
   };
 };
 
-export const revalidate = 60;
-
 export async function generateStaticParams() {
   const query = groq`
     *[_type=='project'] {
@@ -31,6 +29,8 @@ export async function generateStaticParams() {
     slug,
   }));
 }
+
+export const revalidate = 60;
 
 const query = groq`
     *[_type=='project' && slug.current == $slug] [0]
