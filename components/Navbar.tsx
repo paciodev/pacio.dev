@@ -51,7 +51,7 @@ const Navbar = () => {
 
   if (pathname?.startsWith('/studio')) return null;
   return (
-    <header className='fixed bg-white lg:bg-transparent flex top-0 left-0 w-screen p-5 lg:p-12 items-center justify-between z-20'>
+    <header className='pointer-events-none fixed bg-white lg:bg-transparent flex top-0 left-0 w-screen p-5 lg:p-12 items-center justify-between z-20'>
       <motion.div
         initial={{ y: -200 }}
         animate={{
@@ -76,7 +76,7 @@ const Navbar = () => {
               },
             }}
             key={link.text}
-            className=''
+            className='pointer-events-auto'
           >
             {link.href || !(pathname === '/') ? (
               <Link href={link.href || '/'} className='tw-nav-link'>
@@ -95,7 +95,7 @@ const Navbar = () => {
           </motion.div>
         ))}
       </div>
-      <div className='lg:hidden relative z-40'>
+      <div className='lg:hidden relative z-40 pointer-events-auto'>
         <Hamburger
           toggled={open}
           onToggle={() => cycleOpen()}

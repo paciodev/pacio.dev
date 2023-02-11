@@ -14,8 +14,6 @@ const query = groq`
 } | order(createdAt desc)[0..2]
 `;
 
-export const revalidate = 60;
-
 const Projects = async () => {
   const data = await client.fetch(query);
 
