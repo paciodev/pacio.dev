@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 
 type Props = {
 	darkColor: Color;
-	lightColor: Color;
 	createdAt: Date;
 	role: string;
 	categories: Category[];
@@ -27,7 +26,6 @@ const card = {
 
 const Info = ({
 	darkColor,
-	lightColor,
 	createdAt,
 	role,
 	categories,

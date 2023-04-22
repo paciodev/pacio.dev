@@ -61,7 +61,6 @@ const ProjectPage = async ({ params: { slug } }: Props) => {
 			/>
 			<Info
 				darkColor={project.colorDark}
-				lightColor={project.colorLight}
 				createdAt={project.createdAt}
 				role={project.role}
 				categories={project.categories}
