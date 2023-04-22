@@ -1,38 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# pacio.dev
 
-## Getting Started
+Personal portfolio made with Next.js and Sanity 3.0 CMS.
 
-First, run the development server:
+## Router
+
+- **/** - Main page - about me, projects, contact form
+- **/projects** - Projects page, all of the bigger projects.
+- **/projects/[slug]** - Detailed project page, with links more screenshots etc.
+- **/studio** - Private page with Sanity CMS studio panel
+
+## Screenshots
+
+![App Screenshot](https://i.imgur.com/htd83ru.png)
+First view at webpage
+
+![App Screenshot](https://i.imgur.com/hiHCS9n.png)
+About me section
+
+![App Screenshot](https://i.imgur.com/Y9RmJdF.png)
+Project section
+
+![App Screenshot](https://i.imgur.com/LKwvh8O.png)
+Admin studio subpage
+
+## Tech Stack
+
+**Client:** React, TailwindCSS, Heroicons, framer-motion
+
+**Server:** Sanity.io
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`NEXT_PUBLIC_SANITY_PROJECT_ID` - Sanity project id
+
+`NEXT_PUBLIC_SANITY_DATASET` - DB Dataset
+
+`NEXT_PUBLIC_SANITY_API_VERSION` - Sanity api version
+
+`GMAIL_USER` - Email for SMTP server
+
+`GMAIL_PASS` - Gmail password for SMTP server
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  git clone https://github.com/paciodev/pacio.dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd pacio.dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  yarn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Start the server
 
-## Learn More
+```bash
+  yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Lessons Learned
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I learned how to use framer-motion for creating stunning animations. I also learned how to combine smoothly Sanity CMS with Next.js v13 app and I'm really proud of it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Support and feedback
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For support and feedback, email contact@pacio.dev or checkout [my webpage](https://pacio.dev)
