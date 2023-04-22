@@ -8,28 +8,28 @@ import { RichTextComponents } from '@/components/projects/RichTextComponents';
 import { notFound } from 'next/navigation';
 
 type Props = {
-  params: {
-    slug: string;
-  };
+	params: {
+		slug: string;
+	};
 };
 
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const query = groq`
+	const query = groq`
     *[_type=='project'] {
       slug
     }
   `;
 
-  const slugs: {
-    slug: Slug;
-  }[] = await client.fetch(query);
-  const slugRoutes = slugs.map((slug) => slug.slug.current);
+	const slugs: {
+		slug: Slug;
+	}[] = await client.fetch(query);
+	const slugRoutes = slugs.map((slug) => slug.slug.current);
 
-  return slugRoutes.map((slug) => ({
-    slug,
-  }));
+	return slugRoutes.map((slug) => ({
+		slug,
+	}));
 }
 
 const query = groq`
@@ -42,35 +42,38 @@ const query = groq`
   `;
 
 const ProjectPage = async ({ params: { slug } }: Props) => {
-  const project: Project = await client.fetch(query, { slug });
+	const project: Project = await client.fetch(query, { slug });
 
-  if (!project) {
-    return notFound();
-  }
+	console.log(project.colorDark.hex);
 
-  return (
-    <>
-      <Hero
-        dark={project.colorDark}
-        light={project.colorLight}
-        image={project.image}
-        project={project.name}
-        company={project.company}
-      />
-      <Info
-        darkColor={project.colorDark}
-        createdAt={project.createdAt}
-        role={project.role}
-        categories={project.categories}
-        technologies={project.technologies}
-        github={project.github}
-        demo={project.live}
-      />
-      <div className='max-w-4xl mx-auto px-5 sm:px-10 md:px-32 xl:px-0 my-32'>
-        <PortableText value={project.body} components={RichTextComponents} />
-      </div>
-    </>
-  );
+	if (!project) {
+		return notFound();
+	}
+
+	return (
+		<>
+			<Hero
+				dark={project.colorDark}
+				light={project.colorLight}
+				image={project.image}
+				project={project.name}
+				company={project.company}
+			/>
+			<Info
+				darkColor={project.colorDark}
+				lightColor={project.colorLight}
+				createdAt={project.createdAt}
+				role={project.role}
+				categories={project.categories}
+				technologies={project.technologies}
+				github={project.github}
+				demo={project.live}
+			/>
+			<div className='max-w-4xl mx-auto px-5 sm:px-10 md:px-32 xl:px-0 my-32'>
+				<PortableText value={project.body} components={RichTextComponents} />
+			</div>
+		</>
+	);
 };
 
 export default ProjectPage;
