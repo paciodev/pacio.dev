@@ -94,9 +94,9 @@ const About = () => {
 					<motion.div
 						variants={card}
 						whileHover='hover'
-						className='h-32 rounded-xl col-span-2 bg-red-dark flex flex-col items-center justify-center text-2xl bg-img bg-pizza'
+						className='h-32 rounded-xl col-span-2 bg-red-dark flex flex-col items-center justify-center text-3xl bg-img bg-ice-skates'
 					>
-						<p>In love with</p>
+						<p>Enjoying</p>
 					</motion.div>
 
 					<motion.div
