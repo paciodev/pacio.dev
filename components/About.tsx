@@ -115,8 +115,10 @@ const About = () => {
 					<motion.div
 						variants={card}
 						whileHover='hover'
-						className='h-[268px] mini:h-auto rounded-xl col-start-auto lg:col-start-5 xl:col-start-auto col-span-2 row-span-2 lg:row-span-auto lg:row-start-2 lg:row-end-4 xl:row-span-2 bg-red-dark bg-hobbies'
-					/>
+						className='h-[268px] mini:h-auto rounded-xl col-start-auto lg:col-start-5 xl:col-start-auto col-span-2 row-span-2 lg:row-span-auto lg:row-start-2 lg:row-end-4 xl:row-span-2 bg-red-dark bg-img bg-hobbies flex flex-col items-center justify-center text-3xl'
+					>
+						<p>Playing</p>
+					</motion.div>
 
 					<motion.div
 						variants={card}
