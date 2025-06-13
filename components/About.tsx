@@ -79,10 +79,17 @@ const About = () => {
 
                     <motion.div
                         variants={card}
-                        whileHover="hover"
-                        className="h-32 rounded-xl col-span-2 bg-red-dark flex flex-col items-center justify-center text-2xl space-y-2">
-                        <p>Dogs &gt; cats</p>
-                        <Image src={doggo} alt="" width={80} />
+                        whileHover={{
+                            backgroundSize: '100%',
+                            scale: 1.05,
+                            transition: {
+                                type: 'spring',
+                                duration: 0.5,
+                                bounce: 0.6,
+                            },
+                        }}
+                        className="h-32 rounded-xl col-span-2 bg-red-dark flex flex-col items-center justify-center text-3xl bg-img bg-chinese">
+                        <p>Learning</p>
                     </motion.div>
 
                     <motion.div
@@ -114,8 +121,10 @@ const About = () => {
                     <motion.div
                         variants={card}
                         whileHover="hover"
-                        className="h-32 rounded-xl col-span-2 bg-red-dark flex lg:hidden xl:flex flex-col items-center justify-center text-4xl bg-img bg-vscode">
-                        <p>Using</p>
+                        className="h-32 rounded-xl col-span-2 bg-black flex lg:hidden xl:flex flex-col items-center justify-center text-3xl bg-img bg-cursor">
+                        <p className="w-full h-full grid place-content-center rounded-xl bg-black/30">
+                            Using
+                        </p>
                     </motion.div>
 
                     <motion.div

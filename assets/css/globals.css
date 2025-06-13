@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-	--scrollbar-color: #9a1717;
+    --scrollbar-color: #9a1717;
 }
 
 /* html {
@@ -13,120 +13,131 @@
 } */
 
 * {
-	transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), border 0s;
+    transition:
+        all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+        border 0s;
 }
 
 ::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
 
 @layer components {
-	.tw-nav-link {
-		@apply font-bold text-lg relative cursor-pointer;
-	}
+    .tw-nav-link {
+        @apply font-bold text-lg relative cursor-pointer;
+    }
 
-	.tw-contact-link {
-		@apply text-4xl font-extrabold transition-all hover:text-red-dark duration-300;
-	}
+    .tw-contact-link {
+        @apply text-4xl font-extrabold transition-all hover:text-red-dark duration-300;
+    }
 
-	.tw-form-label {
-		@apply font-extrabold mt-3 block;
-	}
+    .tw-form-label {
+        @apply font-extrabold mt-3 block;
+    }
 
-	.tw-form-input {
-		@apply bg-[#D9D9D9] w-full mini:w-[350px] px-4 py-3 text-sm placeholder:text-[#4F4F4F] outline-none;
-	}
+    .tw-form-input {
+        @apply bg-[#D9D9D9] w-full mini:w-[350px] px-4 py-3 text-sm placeholder:text-[#4F4F4F] outline-none;
+    }
 }
 
 .bg-ice-skates {
-	background: #00000070 url('/assets/img/ice-skates.jpg');
+    background: #00000070 url('/assets/img/ice-skates.jpg');
 }
 
-.bg-vscode {
-	background: #00000070 url('/assets/img/vscode.png');
-	background-size: 150% !important;
+.bg-cursor {
+    background: #000 url('/assets/img/cursor.jpg');
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-blend-mode: normal !important;
 }
 
 .bg-img {
-	background-blend-mode: darken;
-	background-size: cover;
-	background-position: center;
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: center;
 }
 
 .bg-hobbies {
-	background: #00000070 url('/assets/img/hobbies.png');
-	background-position: center;
-	background-size: cover;
+    background: #00000070 url('/assets/img/hobbies.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-chinese {
+    background: #00000070 url('/assets/img/chinese.png');
+    background-size: 150%;
 }
 
 @media screen and (max-width: 468px) {
-	.mini-bg-none {
-		background-image: none !important;
-	}
+    .mini-bg-none {
+        background-image: none !important;
+    }
 }
 
 /* NAVBAR LINK HOVER */
 
 .tw-nav-link:after {
-	content: '';
-	position: absolute;
-	width: 100%;
-	transform: scaleX(0);
-	height: 2px;
-	bottom: -3px;
-	left: 0;
-	background-color: #9a1717;
-	transform-origin: bottom right;
-	transition: transform 0.35s ease-out;
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #9a1717;
+    transform-origin: bottom right;
+    transition: transform 0.35s ease-out;
 }
 
 .tw-nav-link:hover:after,
 .tw-nav-link:focus:after {
-	transform: scaleX(1);
-	transform-origin: bottom left;
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 /* BTN CONTACT */
 
 .animate-error {
-	animation: shake 1s, bgChange 2s;
+    animation:
+        shake 1s,
+        bgChange 2s;
 }
 
 @keyframes shake {
-	10%,
-	90% {
-		transform: translate3d(-1px, 0, 0);
-	}
-	20%,
-	80% {
-		transform: translate3d(2px, 0, 0);
-	}
-	30%,
-	50%,
-	70% {
-		transform: translate3d(-4px, 0, 0);
-	}
-	40%,
-	60% {
-		transform: translate3d(4px, 0, 0);
-	}
-	100% {
-		transform: translate3d(0, 0, 0);
-	}
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 @keyframes bgChange {
-	0% {
-		background: black;
-	}
-	20% {
-		background: #9a1717;
-	}
+    0% {
+        background: black;
+    }
+    20% {
+        background: #9a1717;
+    }
 
-	80% {
-		background: #9a1717;
-	}
-	100% {
-		background: black;
-	}
+    80% {
+        background: #9a1717;
+    }
+    100% {
+        background: black;
+    }
 }
